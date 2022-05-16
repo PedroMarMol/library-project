@@ -28,23 +28,44 @@ function addBookToLibrary(e) {
 }
 
 function addItem() {
-    const last = myLibrary[myLibrary.length - 1]    // creates a row
-    const createRow = document.createElement('div')
+    const last = myLibrary[myLibrary.length - 1]    // selects the last library item
+    const createRow = document.createElement('div') // creates a row
     createRow.classList.add('card-row')
 
     const addToCards = document.querySelector('#cards');
+
+    for (let key in last) {
+        const displayBook = document.createElement("div")
+        displayBook.classList.add('card')
+        displayBook.innerText = last[key]
+        createRow.append(displayBook)
+    }
+    addToCards.appendChild(createRow)
+
+    const button = document.createElement("button"); // create and add delete button element
+    button.classList.add("button")                   // and append it to newly created row
+    button.classList.add("delete")
+    button.innerText = "Delete"
+    createRow.appendChild(button);
+
+    button.addEventListener('click', function() {
+        console.log(this);
+        this.parentNode.remove()
+    })
+
+    const state = document.createElement("button");
+    state.classList.add("state")
+    state.classList.add("read")
+    state.innerText = "Not Read"
+    createRow.appendChild(state);
+
+    state.addEventListener('click', function() {
+        console.log(this);
+        this.classList.toggle("read")
+        if (state.innerText === "Not Read") {
+            state.innerText = "Read";
+        } else {
+            state.innerText = "Not Read";
+        }
+    })
 }
-
-// // function book(title, author, pages, read) {
-// //             this.title = title
-// //             this.author = author
-// //             this.pages = pages
-// //             this.read = read
-// //             this.info = function() {
-// //                 return(title + " by " + author + ", " + pages + ", " + read)
-// //             }
-// //         }
-
-
-// // const theHobbit = new book('The Hobbit', 'J.R.R. Tolkien', 
-// //                             '295 pages', 'not read yet');
