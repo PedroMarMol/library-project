@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Book List</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <div class="form">
+            <h1>My Library</h1>
+            <form action="#" class="validform">
+                <div class="add-item">
+                    <input type="text" class="book" placeholder="Whats the title of the book?" id="book" required>
+                    <input type="text" class="title" placeholder="Who is the author?" required>
+                    <input type="number" class="pages" placeholder="Number of pages in the book?" required>
+                    <input type="submit" value="Submit" id="submit">
+                </div>
+            </form>
+        </div>
+        <div id="cards">
+            <div class="card-row" id="heading">
+                <div class="card">Title of the book</div>
+                <div class="card">Author</div>
+                <div class="card">Number of pages</div>
+                <div class="card">Status</div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
